@@ -12,6 +12,13 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mattn/emmet-vim'
+Plugin 'w0rp/ale'
+Plugin 'airblade/vim-gitgutter'
 
 
 call vundle#end()			" required
@@ -29,4 +36,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 
 "" Lightline
 set laststatus=2
+
+"" NERDTree
+map <leader>o :NERDTreeToggle<CR>
+
 
