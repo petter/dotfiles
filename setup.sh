@@ -33,6 +33,9 @@ function neovim_setup() {
 	fi
 
 	echo "Linking $NEOVIM_DIR/init.vim to $CUR_DIR/init.vim"
+	cd "$NEOVIM_DIR"
+	ln -s "$CUR_DIR/init.vim"
+	cd "$CUR_DIR"
 
 	echo "Finished setting up NeoVim!"
 }
