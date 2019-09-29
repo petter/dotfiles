@@ -2,6 +2,12 @@
 
 CUR_DIR="$(pwd)"
 
+function fzf_setup() {
+	printf "\nInstalling fzf\n"
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
+}
+
 function vim_setup() {
 	printf "\nSetting up Vim...\n"
 
@@ -17,8 +23,15 @@ function vim_setup() {
 	echo "Linking $HOME/.vimrc to $CUR_DIR/.vimrc"
 	cd "$HOME"	
 	ln -s "$CUR_DIR/.vimrc"
-	cd "$CUR_DIR"
 
+	echo "Installing Vim Plugins"
+	vim +PluginInstall +qall
+
+	echo "Compiling YCM Core"
+	cd ~/.vim/bundle/YouCompleteMe
+	python3 install.py --all
+
+	cd "$CUR_DIR"
 	echo "Finished setting up Vim!"
 }
 
@@ -40,5 +53,21 @@ function neovim_setup() {
 	echo "Finished setting up NeoVim!"
 }
 
-vim_setup
-neovim_setup
+if [ $# -gt 0 ]; then
+	while [ "$1" != "" ]; do
+		echo "$1"
+		case $1 in
+			fzf)		fzf_setup 
+						;;	
+			vim)		vim_setup
+						;;
+			nvim)	 	neovim_setup
+						;;
+		esac
+		shift
+	done
+else
+	fzf_setup
+	vim_setup
+	neovim_setup
+fi
