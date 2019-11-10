@@ -46,8 +46,6 @@ set laststatus=2
 map <leader>o :NERDTreeToggle<CR>
 
 "" Prettier
-" when running at every change you may want to disable quickfix
-let g:prettier#quickfix_enabled = 0
-
+"" Run prettier before save
 let g:prettier#autoformat = 0
-autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync 
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
