@@ -21,6 +21,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'prettier/vim-prettier'
 
 
 call vundle#end()			" required
@@ -44,4 +45,9 @@ set laststatus=2
 "" NERDTree
 map <leader>o :NERDTreeToggle<CR>
 
+"" Prettier
+" when running at every change you may want to disable quickfix
+let g:prettier#quickfix_enabled = 0
 
+let g:prettier#autoformat = 0
+autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync 
