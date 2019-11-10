@@ -59,6 +59,11 @@ function neovim_setup() {
 	echo "Finished setting up NeoVim!"
 }
 
+function oh_my_zsh_setup() {
+    printf "\nSetting up Oh-My-Zsh...\n"	
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
 if [ $# -gt 0 ]; then
 	while [ "$1" != "" ]; do
 		echo "$1"
@@ -69,6 +74,8 @@ if [ $# -gt 0 ]; then
 						;;
 			nvim)	 	neovim_setup
 						;;
+			oh-my-zsh) 	oh_my_zsh_setup
+						;;
 		esac
 		shift
 	done
@@ -76,4 +83,5 @@ else
 	fzf_setup
 	vim_setup
 	neovim_setup
+	oh_my_zsh_setup
 fi
