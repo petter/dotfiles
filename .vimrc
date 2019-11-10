@@ -29,6 +29,8 @@ filetype plugin indent on   " required
 " Vim configs
 set nu
 set tabstop=4
+set shiftwidth=4
+set expandtab
 
 
 " Plugin configs
