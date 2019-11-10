@@ -38,7 +38,13 @@ function vim_setup() {
 function neovim_setup() {
 	printf "\nSetting up NeoVim...\n"
 	
+	CONFIG_DIR="$HOME/.config"
 	NEOVIM_DIR="$HOME/.config/nvim"
+
+	if [ ! -d "$CONFIG_DIR" ]; then
+	    echo "Creating config folder at $CONFIG_DIR"
+	    mkdir "$CONFIG_DIR"
+	fi
 
 	if [ ! -d "$NEOVIM_DIR" ]; then
 		echo "Creating nvim config folder at $NEOVIM_DIR"
