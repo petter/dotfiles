@@ -21,6 +21,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'prettier/vim-prettier'
 
 
 call vundle#end()			" required
@@ -55,13 +56,12 @@ noremap <leader>s :set spell!<CR>
 
 noremap <leader>ov :tabedit ~/.vimrc<CR>
 
-
 " Plugin configs
-
-"" CtrlP
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 
 "" Lightline
 set laststatus=2
 
-
+"" Prettier
+"" Run prettier before save
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
