@@ -8,6 +8,7 @@ filetype off                " required
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.fzf
 
+" Plugins
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -21,8 +22,10 @@ Plugin 'mattn/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'prettier/vim-prettier'
+" Plugin 'prettier/vim-prettier'
 
+"" Color schemes
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()			" required
 filetype plugin indent on   " required
@@ -33,6 +36,11 @@ filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set mouse=a
+colorscheme gruvbox
+
+"" Syntax
+au BufNewFile,BufRead *.m setlocal ft=emerald
 
 "" Mappings
 nnoremap Q @q
@@ -42,6 +50,12 @@ noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
+
+""" Easier navigation of soft wrapped lines
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+nnoremap <expr> <down> v:count ? 'j' : 'gj'
+nnoremap <expr> <up> v:count ? 'k' : 'gk'
 
 noremap <C-x> :FZF<cr>
 
