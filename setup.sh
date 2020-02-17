@@ -62,6 +62,10 @@ function neovim_setup() {
 function oh_my_zsh_setup() {
     printf "\nSetting up Oh-My-Zsh...\n"	
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    rm $HOME/.zshrc
+    cd $HOME
+    ln -s $CUR_DIR/.zshrc
+    cd $CUR_DIR
 }
 
 if [ $# -gt 0 ]; then
