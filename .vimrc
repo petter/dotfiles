@@ -18,7 +18,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
-Plugin 'mattn/emmet-vim'
+Plugin 'pettersmoen/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
@@ -26,18 +26,20 @@ Plugin 'airblade/vim-gitgutter'
 
 "" Color schemes
 Plugin 'morhetz/gruvbox'
+Plugin 'tomasr/molokai'
 
 call vundle#end()			" required
 filetype plugin indent on   " required
 
 " Vim configs
 set nu
+set rnu
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set mouse=a
-colorscheme gruvbox
+colorscheme molokai
 
 "" Syntax
 au BufNewFile,BufRead *.m setlocal ft=emerald
