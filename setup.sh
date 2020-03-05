@@ -68,6 +68,12 @@ function oh_my_zsh_setup() {
     cd $CUR_DIR
 }
 
+function tmux_setup() {
+    cd $HOME
+    ln -s $CUR_DIR/.tmux.conf
+    cd $CUR_DIR
+}
+
 if [ $# -gt 0 ]; then
 	while [ "$1" != "" ]; do
 		echo "$1"
@@ -80,6 +86,8 @@ if [ $# -gt 0 ]; then
 						;;
 			oh-my-zsh) 	oh_my_zsh_setup
 						;;
+			tmux)       tmux_setup	
+						;;
 		esac
 		shift
 	done
@@ -88,4 +96,5 @@ else
 	vim_setup
 	neovim_setup
 	oh_my_zsh_setup
+    tmux_setup
 fi
