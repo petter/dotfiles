@@ -13,6 +13,8 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'junegunn/fzf.vim'
+Plugin 'tpope/vim-commentary'
 Plugin 'itchyny/lightline.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-eunuch'
@@ -22,6 +24,8 @@ Plugin 'pettersmoen/emmet-vim'
 Plugin 'w0rp/ale'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'junegunn/goyo.vim'
 " Plugin 'prettier/vim-prettier'
 
 "" Color schemes
@@ -48,10 +52,10 @@ au BufNewFile,BufRead *.m setlocal ft=emerald
 nnoremap Q @q
 vnoremap Q :norm @q<cr>
 
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
+" noremap <C-l> <C-w>l
+" noremap <C-h> <C-w>h
+" noremap <C-j> <C-w>j
+" noremap <C-k> <C-w>k
 
 """ Easier navigation of soft wrapped lines
 nnoremap <expr> j v:count ? 'j' : 'gj'
@@ -60,17 +64,30 @@ nnoremap <expr> <down> v:count ? 'j' : 'gj'
 nnoremap <expr> <up> v:count ? 'k' : 'gk'
 
 noremap <C-x> :FZF<cr>
+nnoremap Y y$
 
 """ leader mappings
 let mapleader = ","
-noremap <leader>w :w<CR>
-noremap <leader>q :q<CR>
-noremap <leader>x :wq<CR>
-noremap <leader>t :NERDTreeToggle<CR>
-noremap <leader>r :so %<CR>
-noremap <leader>s :set spell!<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
+nnoremap <leader>x :wq<CR>
+nnoremap <leader>r :so ~/.config/nvim/init.vim<CR>
+noremap <leader>: :Commands<CR>
 
-noremap <leader>ov :tabedit ~/.vimrc<CR>
+"""" Toggles
+nnoremap <leader>tt :NERDTreeToggle<CR>
+nnoremap <leader>tg :Goyo<CR>
+
+"""" Spelling
+nnoremap <leader>ss :set spell!<CR>
+nnoremap <leader>sn :set spelllang=nb<CR>
+nnoremap <leader>sn :set spelllang=en<CR>
+
+"""" Open
+nnoremap <leader>ov :tabedit ~/.vimrc<CR>
+nnoremap <leader>oi :tabedit ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ot :tabedit ~/.tmux.conf<CR>
 
 " Plugin configs
 
@@ -79,5 +96,5 @@ set laststatus=2
 
 "" Prettier
 "" Run prettier before save
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
