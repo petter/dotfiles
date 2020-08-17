@@ -52,6 +52,8 @@ au BufNewFile,BufRead *.m setlocal ft=emerald
 nnoremap Q @q
 vnoremap Q :norm @q<cr>
 
+nnoremap <space> /
+
 " noremap <C-l> <C-w>l
 " noremap <C-h> <C-w>h
 " noremap <C-j> <C-w>j
@@ -75,16 +77,17 @@ nnoremap <leader>x :wq<CR>
 nnoremap <leader>r :so ~/.config/nvim/init.vim<CR>
 noremap <leader>: :Commands<CR>
 
-"""" Toggles
+"""" (t)oggles
 nnoremap <leader>tt :NERDTreeToggle<CR>
 nnoremap <leader>tg :Goyo<CR>
 
-"""" Spelling
+"""" (s)pelling
 nnoremap <leader>ss :set spell!<CR>
 nnoremap <leader>sn :set spelllang=nb<CR>
 nnoremap <leader>sn :set spelllang=en<CR>
 
-"""" Open
+"""" (o)pen
+nnoremap <leader>oz :tabedit ~/.zshrc<CR>
 nnoremap <leader>ov :tabedit ~/.vimrc<CR>
 nnoremap <leader>oi :tabedit ~/.config/nvim/init.vim<CR>
 nnoremap <leader>ot :tabedit ~/.tmux.conf<CR>

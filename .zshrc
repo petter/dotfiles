@@ -101,14 +101,20 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-export PATH=~/anaconda3/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
-
 alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias ifi="ssh pettesm@login.ifi.uio.no"
+alias fd='fdfind'
+
+export PATH=~/anaconda3/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export DENO_INSTALL="/home/petter/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="$PATH:./node_modules/.bin" # tree-sitter
+
+export FZF_DEFAULT_COMMAND='fdfind --type f'
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -131,4 +137,9 @@ export GDK_SCALE=2
 
 emerald() {
 		sudo docker run --interactive --tty --rm --volume "$(pwd):/home/docker/src/" --workdir "/home/docker/src/" portoleks/in5570v20:latest
+}
+
+essay() {
+    z essay
+    tmux new-session \; send-keys 'vim main.tex' C-m \; new-window ./build.sh \;
 }
