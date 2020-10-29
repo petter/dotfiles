@@ -139,7 +139,10 @@ emerald() {
 		sudo docker run --interactive --tty --rm --volume "$(pwd):/home/docker/src/" --workdir "/home/docker/src/" portoleks/in5570v20:latest
 }
 
-essay() {
-    z essay
-    tmux new-session \; send-keys 'vim main.tex' C-m \; new-window ./build.sh \;
+thesis() {
+    z thesis
+    tmux new-session \; send-keys 'vim' C-m \; new-window "make watch" \;
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f "/home/petter/.ghcup/env" ] && source "/home/petter/.ghcup/env" # ghcup-env
